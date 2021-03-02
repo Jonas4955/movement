@@ -1,56 +1,34 @@
-import { CompletedChallenges } from '../components/CompletedChallenges'
-import { Countdown } from '../components/Countdown'
-import { ExperienceBar } from '../components/ExperienceBar'
-import { Profile } from '../components/Profile'
-import { GetServerSideProps } from 'next'
-import Head from 'next/head'
+import React from 'react'
+import { useRouter } from 'next/router'
 
-import styles from '../styles/pages/Home.module.css'
-import { ChallendBox } from '../components/ChallendBox'
-import { CountdownProvider } from '../contexts/CountdownContext'
-import { ChallengesProvider } from '../contexts/ChallengesContexts'
+import styles from '../styles/pages/Login.module.css'
 
-interface HomeProps {
-  level: number
-  currentExperience: number
-  challengesCompleted: number
-}
-
-export default function Home({ level, currentExperience, challengesCompleted }: HomeProps) {
-  return (
-    <ChallengesProvider level={level} currentExperience={currentExperience} challengesCompleted={challengesCompleted}>
-      <div className={styles.container}>
-        <Head>
-          <title>Ibicio | move.it</title>
-        </Head>
-
-        <ExperienceBar />
-
-        <CountdownProvider>
-          <section>
-            <div>
-              <Profile />
-              <CompletedChallenges />
-              <Countdown />
-            </div>
-            <div>
-              <ChallendBox />
-            </div>
-          </section>
-        </CountdownProvider>
-      </div>
-    </ChallengesProvider>
-  )
-}
-
-export const getServerSideProps: GetServerSideProps = async context => {
-  const { level, currentExperience, challengesCompleted } = context.req.cookies
-
-  return {
-    props: {
-      level: Number(level),
-      currentExperience: Number(currentExperience),
-      challengesCompleted: Number(challengesCompleted)
-    }
+export default function Login() {
+  const router = useRouter()
+  const onSubmitLogin = event => {
+    event.preventDefault()
+    router.push('/home')
   }
+
+  return (
+    <div className={styles.loginContainer}>
+      <div className={styles.backgroundLogo}>
+        <img src="icons/background-logo.svg" alt="Background Logo" />
+      </div>
+      <div>
+        <img src="icons/login-logo.png" alt="Logo Movement" />
+        <h2>Bem-vindo</h2>
+        <img src="icons/github.svg" alt="Github login" />
+
+        <form onSubmit={onSubmitLogin}>
+          <div>
+            <input type="text" className={styles.inputLogin} />
+            <button type="submit" className={styles.buttonLogin}>
+              ->
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  )
 }

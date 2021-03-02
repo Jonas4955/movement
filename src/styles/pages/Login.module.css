@@ -1,0 +1,72 @@
+.loginContainer {
+  height: 100vh;
+  background: linear-gradient(to right, var(--blue-dark), var(--blue));
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+
+  text-align: center;
+}
+
+.backgroundLogo {
+  margin-left: -100px;
+}
+
+.loginContainer h2 {
+  margin: 10px;
+  color: var(--white);
+  font-size: 1.8rem;
+  font-weight: 800;
+  font: 600;
+}
+
+.inputLogin {
+  height: 3rem;
+  width: 70%;
+  margin-top: 20px;
+  box-shadow: -2px 1px 6px 4.5px rgba(100%, 100%, 100%, 0.08);
+  border-right: 0.5px solid rgba(0, 0, 0, 0.1);
+  border-left: 1.5px solid rgba(0, 0, 0, 0.1);
+  border-top: 1.5px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1.5px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding-left: 10px;
+  color: var(--white);
+  font-size: 1.2rem;
+  font-weight: 200;
+  font: 700;
+
+  background: linear-gradient(to left, var(--blue-dark), var(--blue));
+}
+
+.inputLogin:focus {
+  outline: 0;
+}
+
+.buttonLogin {
+  height: 3rem;
+  width: 20%;
+  box-shadow: 2px 1px 6px 4.5px rgba(100%, 100%, 100%, 0.05);
+  border-right: 1.5px solid rgba(0, 0, 0, 0.1);
+  border-left: 0.5px solid rgba(0, 0, 0, 0.1);
+  border-top: 1.5px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1.5px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  color: var(--white);
+  font-size: 1.2rem;
+  font-weight: 700;
+  font: 700;
+
+  /* background: linear-gradient(to right, var(--blue-dark), var(--blue)); */
+  background: var(--blue-dark);
+}
+
+.buttonLogin:hover {
+  background: #454fd1;
+}
+
+.buttonLogin:focus {
+  outline: 0;
+}
